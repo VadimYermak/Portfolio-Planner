@@ -13,6 +13,9 @@ Financial Portfolio planner that allows user to research stocks and create  a po
 • Gives users access to tools… and expertise to assist them wealth amplifications
 
 ## Images
+The script allows user prompts to select from a list with very few manual prompts.
+
+![Image Link]
 
 ## Instructions
 
