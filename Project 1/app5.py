@@ -17,6 +17,22 @@ alpaca_secret_key = os.getenv("secret")
 
 alpaca = tradeapi.REST(alpaca_api_key, alpaca_secret_key, api_version = "v2")
 
+stocks = {
+    "Apple Inc" : "AAPL",
+    "Amazon.com Inc" : "AMZN",
+    "Tesla Inc" : "TSLA",
+    "Johnson & Johnson" : "JNJ",
+    "Pfizer Inc" : "PFE",
+    "Morgan Stanley" : "MS",
+    "Coinbase Gllobal Inc" : "COIN",
+    "Visa Inc" : "V",
+    "American Express Company" : "AXP",
+    "Paypal Holding Inc" : "PYPL",
+    "General Electric Company" : "GE",
+    "Delta Air Lines Inc" : "DAL",
+    "Exxon Mobil Corp" : "XOM"
+}
+
 # Global Variables
 user_name = ""
 favorited_stocks = []
@@ -178,20 +194,44 @@ def run():
             print("This module will perform a simulation of your portfolio performance. Please answer the following questions.")
     
         
-            stock1 = input("Please enter one stock to be included in your portfolio.")
-            weight1 = input(f"You have selected {stock1}. What is the weight?")
-            stock2 = input("Please enter a second stock to be included in your portfolio.")
-            weight2 = input(f"You have selected {stock2}. What is the weight?")
+            initial_investment = questionary.text("How much money (USD) are you investing in this portfolio?").ask()
+            investment_years = questionary.text("How many years will you be investing?").ask()
+            stock1 = stocks[questionary.select("Select a stock for your portfolio", choices = stocks).ask()]
+            stock2 = stocks[questionary.select("Select a second stock for your portfolio", choices = stocks).ask()]
+            
+            portfolio_weights = questionary.select(
+                f"Would you like to this to be an equally-weighted portfolio? (ie: .50 {stock1} and .50 {stock2})?",
+                choices=["Yes", "No",]).ask()
+
+            if portfolio_weights == "Yes":
+                weight1 = .50
+                weight2 = .50
+            
+            else:
+                weight1 = float(questionary.text(
+                    f"What percentage of the portfolio will be made up of {stock1}? Please enter the percentage in decimal format.").ask())
+                confirm = questionary.select(f"The remainder of the portfolio will comprise of {1.0 - weight1 : .02}. Is this correct?", choices = ["Yes", "No"]).ask()
+        
+                if confirm == "Yes":
+                    weight2 = 1.0 - weight1
+                
+                else:
+                    cruddy_cli_running = False
+                    print("\nThank you for using the CRUDdy CLI! Goodbye!")
 
             cruddy_cli_running = True
 
             while cruddy_cli_running:
-                choice = questionary.select("Would you like to start a Monte Carlo Simulation?", choices=["Yes", "No"]).ask()
+                choice = questionary.select(
+                    "Would you like to start a Monte Carlo Simulation?", 
+                    choices=["Yes", "No"]).ask()
         
                 if choice == "Yes":
-                    investment_years = input("How many years would you like to invest?")
-                    initial_investment = input("How much do you want to invest?")
-                    mc_sim(df_portfolio(stock1, stock2), float(weight1), float(weight2), int(investment_years), int(initial_investment))
+                    mc_sim(df_portfolio(stock1, stock2), 
+                           float(weight1), 
+                           float(weight2), 
+                           int(investment_years), 
+                           int(initial_investment))
      
                 else:
                     cruddy_cli_running = False
