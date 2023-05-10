@@ -2,7 +2,7 @@
 
 
 ## Description
-
+This is the Project 1 submission for Group 3.
 
 ## Instructions
 
