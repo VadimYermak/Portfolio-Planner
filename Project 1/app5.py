@@ -17,6 +17,12 @@ alpaca_secret_key = os.getenv("secret")
 
 alpaca = tradeapi.REST(alpaca_api_key, alpaca_secret_key, api_version = "v2")
 
+
+# Global Variables
+user_name = ""
+favorited_stocks = []
+
+# Dictionary with provided stock names and ticker symbols
 stocks = {
     "Apple Inc" : "AAPL",
     "Amazon.com Inc" : "AMZN",
@@ -33,9 +39,6 @@ stocks = {
     "Exxon Mobil Corp" : "XOM"
 }
 
-# Global Variables
-user_name = ""
-favorited_stocks = []
 
 # User intro functionality
 def user_intro():
@@ -124,23 +127,6 @@ def run():
     
     cruddy_cli_running = True
     
-    # Dictionary with provided stock names and ticker symbols
-    stocks = {
-        "Apple Inc" : "AAPL",
-        "Amazon.com Inc" : "AMZN",
-        "Tesla Inc" : "TSLA",
-        "Johnson & Johnson" : "JNJ",
-        "Pfizer Inc" : "PFE",
-        "Morgan Stanley" : "MS",
-        "Coinbase Gllobal Inc" : "COIN",
-        "Visa Inc" : "V",
-        "American Express Company" : "AXP",
-        "Paypal Holding Inc" : "PYPL",
-        "General Electric Company" : "GE",
-        "Delta Air Lines Inc" : "DAL",
-        "Exxon Mobil Corp" : "XOM"
-    }
-
     while cruddy_cli_running:
         choice = questionary.select(
             "Where would you like to continue?",
