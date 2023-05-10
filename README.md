@@ -15,14 +15,15 @@ Financial Portfolio planner that allows user to research stocks and create  a po
 ## Images
 The script allows user prompts to select from a list with very few manual prompts.
 
-<img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Stocks%20List.png" width="300">
+| Select stocks from a list| Monte Carlo Simulation |
+| :-----------------:| :-----------------:|
+| <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Stocks%20List.png" width="300">| <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Monte%20Carlo%20Simulation.png" width="300"> |
 
-User can also create a favorite stocks list for reference later.
+User can also general a favorite stocks list for future reference.
 
 <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Favorites%20List.png" width="300">
 
 ## Instructions
-
 
 ## Installation Requirements
 Import the following packages before running the script. Note that the user will need to create a .env file with their own API keys.
