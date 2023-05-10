@@ -12,10 +12,13 @@ Import the following packages before running the script. Note that the user will
 ```
 import os
 import requests
-import json
 import pandas as pd
+import numpy as np
 from dotenv import load_dotenv
 import alpaca_trade_api as tradeapi
+import fire
+import questionary
+import json
 from MCForecastTools import MCSimulation
 
 %matplotlib inline
