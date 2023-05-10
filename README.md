@@ -12,6 +12,8 @@ Financial Portfolio planner that allows user to research stocks and create  a po
 • Programs allows for users to preview the expected return for stocks and given their appetite for risk
 • Gives users access to tools… and expertise to assist them wealth amplifications
 
+## Images
+
 ## Instructions
 
 
