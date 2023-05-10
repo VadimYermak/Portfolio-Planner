@@ -17,7 +17,7 @@ The script allows user prompts to select from a list with very few manual prompt
 
 | Select stocks from a list| Monte Carlo Simulation |
 | :-----------------:| :-----------------:|
-| <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Stocks%20List.png" width="300">| <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Monte%20Carlo%20Simulation.png" width="300"> |
+| <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Stocks%20List.png" width="300">| <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Monte%20Carlo%20Simulation.png" width="420"> |
 
 User can also general a favorite stocks list for future reference.
 
