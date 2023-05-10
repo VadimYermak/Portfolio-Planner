@@ -15,7 +15,12 @@ Financial Portfolio planner that allows user to research stocks and create  a po
 ## Images
 The script allows user prompts to select from a list with very few manual prompts.
 
-<img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Stocks%20List.png" width="350">
+<img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Stocks%20List.png" width="300">
+
+User can also create a favorite stocks list for reference later.
+
+<img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Favorites%20List.png" width="300">
+
 ## Instructions
 
 
