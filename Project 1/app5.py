@@ -141,6 +141,7 @@ def run():
             if continue_answer == "No":
                 cruddy_cli_running = False
                 print("\nThank you for using the CRUDdy CLI! Goodbye!")
+                break
                                                  
             choice = questionary.select(
                 f"{user_name} what stocks would you like to review?", 
