@@ -75,9 +75,10 @@ def get_sharpe_ratio(ticker):
     annual_standard_deviation = daily_returns.std() * np.sqrt(252)
     sharpe_ratio = annual_average_return / annual_standard_deviation
     
-    print(f"Annualized Average Return is {annual_average_return : .02f}.")
-    print(f"Annualized Standard Deviation is {annual_standard_deviation : .02f}.")
-    print(f"Sharpe ratio for {ticker} is" + Fore.RED + f"{sharpe_ratio : .02f}.")
+    print(f"\nSharpe ratio for {ticker} is " + Fore.RED + f"{sharpe_ratio : .02f}" + Style.RESET_ALL +".")
+    print(f"Annualized Average Return is " + Fore.RED + f"{annual_average_return : .02f}" + Style.RESET_ALL +".")
+    print(f"Annualized Standard Deviation is " + Fore.RED + f"{annual_standard_deviation : .02f}" + Style.RESET_ALL +".\n")
+    
 
 # Create a dataframe from two stock inputs:
 def df_portfolio(stock1, stock2):
@@ -114,16 +115,13 @@ def mc_sim(df_portfolio, weight1, weight2, investment_years, initial_investment)
     ci_95_upper_cumulative_return = MC_summary_statistics[9] * initial_investment
     
     return print(MC_summary_statistics, 
-                 f"The lowest value of your portfolio is {ci_95_lower_cumulative_return: .02f}.", 
-                 f"The highest value of your portfolio is {ci_95_upper_cumulative_return: .02f}.", 
+                 f"The lowest value of your portfolio is" + Fore.RED + f"{ci_95_lower_cumulative_return: .02f}" + Style.RESET_ALL +".", 
+                 f"The highest value of your portfolio is" + Fore.RED + f"{ci_95_upper_cumulative_return: .02f}" + Style.RESET_ALL +".\n", 
                  )
 
-# Application run functionality    
-def run():
-    if user_name == "":
-        user_intro()
-    
-    cruddy_cli_running = True
+# Main functionality
+def main_application():
+    porfolio_cli_running = True
 
     while cruddy_cli_running:
         choice = questionary.select(
@@ -136,11 +134,18 @@ def run():
             print("\nHere you can choose a stock to research\n")
             print("If you are satisfied with the data you can add it to your favorites or move on to the next module\n")
             
-            continue_answer = questionary.select("Shall we continue?\n", choices = ["Yes", "No"]).ask()
+            continue_answer = questionary.select("Shall we continue?", choices = ["Yes", "No"]).ask()
             if continue_answer == "No":
-                cruddy_cli_running = False
-                print("\nThank you for using Portfolio Planner! Goodbye!")
-                break
+                # return to main page condition
+                return_to_start = questionary.select("\nReturn to main page?\n", choices = ["Yes", "No"]).ask()
+                if return_to_start == "Yes":
+                    porfolio_cli_running = False
+                    main_application()
+                    break
+                else:
+                    porfolio_cli_running = False
+                    print("\nThank you for using the Portfolio Planner! Goodbye!")
+                    break
                                                  
             choice = questionary.select(
                 f"{user_name} what stocks would you like to review?", 
@@ -173,8 +178,8 @@ def run():
                         print("stock is already in favorites\n")
                 
             else:
-                cruddy_cli_running = False
-                print("\nThank you for using Portfolio Planner! Goodbye!")
+                porfolio_cli_running = False
+                print("\nThank you for using the Portfolio Planner! Goodbye!")
         
         
         # Run Monte Carlo Simulation
@@ -195,8 +200,18 @@ def run():
                 stock2 = stocks[questionary.select("Select a second stock for your portfolio", choices = stocks).ask()]
             
             portfolio_weights = questionary.select(
-                f"Would you like to this to be an equally-weighted portfolio? (ie: .50 {stock1} and .50 {stock2})?",
+                f"Would you like this to be an equally-weighted portfolio? (ie: .50 {stock1} and .50 {stock2})?",
                 choices=["Yes", "No",]).ask()
+            
+            # Portfolio weight validator condtional
+            def weight_validator(weight):
+                if weight > 1.0 or weight < 0.1:
+                    print(Fore.RED + "Please choose a number between the specified ratio of 0.1 and 0.9")
+                    weight = float(questionary.text(
+                    f"What percentage of the portfolio will be made up of {stock1}? Please enter the percentage in decimal format between 0.1 to 0.9.").ask())
+                    return weight_validator(weight)
+                else:
+                    return weight
 
             # Portfolio weights check
             if portfolio_weights == "Yes":
@@ -204,34 +219,43 @@ def run():
                 weight2 = .50
             else:
                 weight1 = float(questionary.text(
-                    f"What percentage of the portfolio will be made up of {stock1}? Please enter the percentage in decimal format.").ask())
+                    f"What percentage of the portfolio will be made up of {stock1}? Please enter the percentage in decimal format between 0.1 to 0.9.").ask())
+                weight1 = weight_validator(weight1)
                 confirm = questionary.select(
-                    f"The remainder of the portfolio will comprise of {1.0 - weight1 : .02} of {stock2}. Is this correct?", choices = ["Yes", "No"]).ask()
+                    f"The remainder of the portfolio will comprise of {1.0 - weight1: .02} of {stock2}. Is this correct?", choices = ["Yes", "No"]).ask()
         
                 if confirm == "Yes":
                     weight2 = 1.0 - weight1
                 
                 else:
-                    cruddy_cli_running = False
-                    print("\nThank you for using Portfolio Planner! Goodbye!")
+                    porfolio_cli_running = False
+                    print("\nThank you for using the Portfolio Planner! Goodbye!")
+                    break
 
-            cruddy_cli_running = True
+            # Start Monte Carlo Simulation
+            choice = questionary.select(
+                "Would you like to start a Monte Carlo Simulation?", 
+                choices=["Yes", "No"]).ask()
 
-            while cruddy_cli_running:
-                choice = questionary.select(
-                    "Would you like to start a Monte Carlo Simulation?", 
-                    choices=["Yes", "No"]).ask()
-        
-                if choice == "Yes":
-                    mc_sim(df_portfolio(stock1, stock2), 
-                           float(weight1), 
-                           float(weight2), 
-                           int(investment_years), 
-                           int(initial_investment))
+            if choice == "Yes":
+                mc_sim(df_portfolio(stock1, stock2), 
+                       float(weight1), 
+                       float(weight2), 
+                       int(investment_years), 
+                       int(initial_investment))
+            
+            # return to main page condition
+            return_to_start = questionary.select("\nReturn to main page?\n", choices = ["Yes", "No"]).ask()
+            if return_to_start == "Yes":
+                porfolio_cli_running = False
+                main_application()
+                break
+            else:
+                porfolio_cli_running = False
+                print("\nThank you for using the Portfolio Planner! Goodbye!")
+                break
      
-                else:
-                    cruddy_cli_running = False
-                    print("\nThank you for using Portfolio Planner! Goodbye!")
+                
 
                     
         # Add to favorite list
@@ -243,10 +267,18 @@ def run():
                     print(stock)
             
         else:
-            cruddy_cli_running = False
-            print("\nThank you for using Portfolio Planner! Goodbye!")
+            porfolio_cli_running = False
+            print("\nThank you for using the Portfolio Planner! Goodbye!")
+            
+
+# Application run functionality    
+def run():
+    if user_name == "":
+        user_intro()
         
-                                                 
+    main_application()
+    
+    
                                                  
 if __name__ == "__main__":
     fire.Fire(run)
