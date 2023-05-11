@@ -121,9 +121,9 @@ def mc_sim(df_portfolio, weight1, weight2, investment_years, initial_investment)
 
 # Main functionality
 def main_application():
-    porfolio_cli_running = True
+    portfolio_cli_running = True
 
-    while cruddy_cli_running:
+    while portfolio_cli_running:
         choice = questionary.select(
             "Where would you like to continue?",
             choices=["Research Stocks", "Run Monte Carlo Simulation", "Favorites List", "Quit"]
@@ -139,11 +139,11 @@ def main_application():
                 # return to main page condition
                 return_to_start = questionary.select("\nReturn to main page?\n", choices = ["Yes", "No"]).ask()
                 if return_to_start == "Yes":
-                    porfolio_cli_running = False
+                    portfolio_cli_running = False
                     main_application()
                     break
                 else:
-                    porfolio_cli_running = False
+                    portfolio_cli_running = False
                     print("\nThank you for using the Portfolio Planner! Goodbye!")
                     break
                                                  
@@ -178,7 +178,7 @@ def main_application():
                         print("stock is already in favorites\n")
                 
             else:
-                porfolio_cli_running = False
+                portfolio_cli_running = False
                 print("\nThank you for using the Portfolio Planner! Goodbye!")
         
         
@@ -228,7 +228,7 @@ def main_application():
                     weight2 = 1.0 - weight1
                 
                 else:
-                    porfolio_cli_running = False
+                    portfolio_cli_running = False
                     print("\nThank you for using the Portfolio Planner! Goodbye!")
                     break
 
@@ -251,7 +251,7 @@ def main_application():
                 main_application()
                 break
             else:
-                porfolio_cli_running = False
+                portfolio_cli_running = False
                 print("\nThank you for using the Portfolio Planner! Goodbye!")
                 break
      
@@ -267,7 +267,7 @@ def main_application():
                     print(stock)
             
         else:
-            porfolio_cli_running = False
+            portfolio_cli_running = False
             print("\nThank you for using the Portfolio Planner! Goodbye!")
             
 
