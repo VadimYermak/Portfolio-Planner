@@ -8,6 +8,7 @@ import fire
 import questionary
 import json
 from MCForecastTools import MCSimulation
+from colorama import Fore, Back, Style
 
 
 path = "env"
@@ -30,7 +31,7 @@ stocks = {
     "Johnson & Johnson" : "JNJ",
     "Pfizer Inc" : "PFE",
     "Morgan Stanley" : "MS",
-    "Coinbase Gllobal Inc" : "COIN",
+    "Coinbase Global Inc" : "COIN",
     "Visa Inc" : "V",
     "American Express Company" : "AXP",
     "Paypal Holding Inc" : "PYPL",
@@ -70,14 +71,13 @@ def get_sharpe_ratio(ticker):
     
     # Data return computations
     daily_returns = df['close'].pct_change().dropna()
-    annual_average_return = daily_returns.mean() * 1260
-    annual_standard_deviation = daily_returns.std() * np.sqrt(1260)
+    annual_average_return = daily_returns.mean() * 252
+    annual_standard_deviation = daily_returns.std() * np.sqrt(252)
     sharpe_ratio = annual_average_return / annual_standard_deviation
     
-    print(f"Sharpe ratio for {ticker} is {sharpe_ratio : .02f}.")
-    print(f"Annualized Average Return is {annual_average_return : .02f}")
+    print(f"Annualized Average Return is {annual_average_return : .02f}.")
     print(f"Annualized Standard Deviation is {annual_standard_deviation : .02f}.")
-    
+    print(f"Sharpe ratio for {ticker} is" + Fore.RED + f"{sharpe_ratio : .02f}.")
 
 # Create a dataframe from two stock inputs:
 def df_portfolio(stock1, stock2):
@@ -118,7 +118,6 @@ def mc_sim(df_portfolio, weight1, weight2, investment_years, initial_investment)
                  f"The highest value of your portfolio is {ci_95_upper_cumulative_return: .02f}.", 
                  )
 
-
 # Application run functionality    
 def run():
     if user_name == "":
@@ -140,7 +139,7 @@ def run():
             continue_answer = questionary.select("Shall we continue?\n", choices = ["Yes", "No"]).ask()
             if continue_answer == "No":
                 cruddy_cli_running = False
-                print("\nThank you for using the CRUDdy CLI! Goodbye!")
+                print("\nThank you for using Portfolio Planner! Goodbye!")
                 break
                                                  
             choice = questionary.select(
@@ -152,7 +151,7 @@ def run():
                     "Johnson & Johnson",
                     "Pfizer Inc",
                     "Morgan Stanley",
-                    "Coinbase Gllobal Inc",
+                    "Coinbase Global Inc",
                     "Visa Inc",
                     "American Express Company",
                     "Paypal Holding Inc",
@@ -175,7 +174,7 @@ def run():
                 
             else:
                 cruddy_cli_running = False
-                print("\nThank you for using the CRUDdy CLI! Goodbye!")
+                print("\nThank you for using Portfolio Planner! Goodbye!")
         
         
         # Run Monte Carlo Simulation
@@ -207,14 +206,14 @@ def run():
                 weight1 = float(questionary.text(
                     f"What percentage of the portfolio will be made up of {stock1}? Please enter the percentage in decimal format.").ask())
                 confirm = questionary.select(
-                    f"The remainder of the portfolio will comprise of {1.0 - weight1 : .02}. Is this correct?", choices = ["Yes", "No"]).ask()
+                    f"The remainder of the portfolio will comprise of {1.0 - weight1 : .02} of {stock2}. Is this correct?", choices = ["Yes", "No"]).ask()
         
                 if confirm == "Yes":
                     weight2 = 1.0 - weight1
                 
                 else:
                     cruddy_cli_running = False
-                    print("\nThank you for using the CRUDdy CLI! Goodbye!")
+                    print("\nThank you for using Portfolio Planner! Goodbye!")
 
             cruddy_cli_running = True
 
@@ -232,7 +231,7 @@ def run():
      
                 else:
                     cruddy_cli_running = False
-                    print("\nThank you for using the CRUDdy CLI! Goodbye!")
+                    print("\nThank you for using Portfolio Planner! Goodbye!")
 
                     
         # Add to favorite list
@@ -245,7 +244,7 @@ def run():
             
         else:
             cruddy_cli_running = False
-            print("\nThank you for using the CRUDdy CLI! Goodbye!")
+            print("\nThank you for using Portfolio Planner! Goodbye!")
         
                                                  
                                                  
