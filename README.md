@@ -1,5 +1,13 @@
 # Project 1
 
+## Table of contents
+
+- [Description](#description)
+- [Background](#background)
+- [Installation Requirements / Technologies](#installation-requirements-technologies)
+- [Images](#images)
+- [License](#license)
+
 ## Description
 This is the Project 1 submission for Group 3.
 • Executive summary: Briefly explain your project and how it relates to fintech and financial programming.
