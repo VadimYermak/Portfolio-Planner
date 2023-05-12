@@ -10,9 +10,10 @@
 
 ## Description
 <div align="center">
-<img src="https://media.giphy.com/media/Bz0VxzLCAPUgdxyTLE/giphy.gif" width="480" height="266">
+<img src="Images/Portfolio Planner.gif" style="width: 100px; height: 100px; object-fit: none; object-position: 25% 25%;></img>
 </div>
 <br/>
+                                               
 This is the Project 1 submission for Group 3.
 • Executive summary: Briefly explain your project and how it relates to fintech and financial programming.
 • Financial Portfolio planner that allows user to research stocks and create  a portfolio
