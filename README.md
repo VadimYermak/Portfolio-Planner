@@ -6,6 +6,8 @@
 - [Background](#background)
 - [Installation Requirements / Technologies](#installation-requirements-technologies)
 - [Images](#images)
+- [Collaborators](#collaborators)
+- [Sources](#sources)
 - [License](#license)
 
 ## Description
@@ -54,7 +56,7 @@ User can also generate a Favorites List for their stocks for future reference.
 ## Collaborators
 Byan Lu, Vadim Yermak, Cherryl, John Nguyen, Philippe Timothe
 
-## Acknowledgements
+## Sources
 
 ## License
 
