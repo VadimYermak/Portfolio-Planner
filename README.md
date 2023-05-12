@@ -9,8 +9,8 @@
 - [License](#license)
 
 ## Description
-<div align="center" width="100" overflow="hidden">
-<img src="Images/Portfolio Planner.gif"  style="width: 100%; display:block; margin:-21.875% 0"></img>
+<div align="center">
+<img src="Images/Portfolio Planner.gif"  style="width: 100%; height: 600px; object-fit: none;">
 </div>
 <br/>
                                                
