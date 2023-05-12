@@ -1,4 +1,4 @@
-# Project 1
+<h1 align="center">Porfolio Planner</h1>
 
 ## Table of contents
 
