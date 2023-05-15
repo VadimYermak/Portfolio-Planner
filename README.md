@@ -11,7 +11,7 @@
 - [License](#license)
 
 ## Description
-This is a financial portfolio planne that allows the user to research stocks and create a portfolio of stocks. The user is able able to preview the expected return, volatility and sharp ratio for the stock of their choice. After assessing this information, or if the user already knows which stocks they would like to place in their portfolio, this program will simulate its performance over time. Parameters such as initial portfolio investment, weight of the stocks in the portfolio, and investment length of time are inputs provided by the user.
+This is a financial portfolio planner that allows the user to research stocks and create a portfolio of stocks. The user is able able to preview the expected return, volatility and sharp ratio for the stock of their choice. After assessing this information, or if the user already knows which stocks they would like to place in their portfolio, this program will simulate its performance over time. Parameters such as initial portfolio investment, weight of the stocks in the portfolio, and investment length of time are inputs provided by the user.
 
 
 
@@ -21,7 +21,7 @@ This is a financial portfolio planne that allows the user to research stocks and
 <br/>
 
 ## Background
-Financial concepts and wealth management can be daunting to understand for people who do not have a background in finance.
+Financial concepts and wealth management can be daunting to understand for indivduals who do not have a background in finance. This program will allow users to research and experiment with different stocks and see how their decisions affect future financial returns. 
 
 ## Installation Requirements / Technologies
 Import the following packages before running the script. Note that the user will need to create a .env file with their own API keys.
