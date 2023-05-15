@@ -23,7 +23,7 @@ This is a financial portfolio planner that allows the user to research stocks an
 ## Background
 Financial concepts and wealth management can be daunting to understand for indivduals who do not have a background in finance. This program will allow users to research and experiment with different stocks and see how their decisions affect future financial returns. 
 
-## Installation Requirements / Technologies
+## Installation Requirements
 Import the following packages before running the script. Note that the user will need to create a .env file with their own API keys.
 ```
 import os
