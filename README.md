@@ -16,12 +16,7 @@
 </div>
 <br/>
                                                
-This is the Project 1 submission for Group 3.
-• Executive summary: Briefly explain your project and how it relates to fintech and financial programming.
-• Financial Portfolio planner that allows user to research stocks and create  a portfolio
-• General user typical has assets that they don’t know what to do. This program helps them predict their potential returns for investment.
-• Programs allows for users to preview the expected return for stocks and given their appetite for risk
-Gives users access to tools… and expertise to assist them wealth amplifications
+This is a financial portfolio planne that allows the user to research stocks and create a portfolio of stocks. The user is able able to preview the expected return, volatility and sharp ratio for the stock of their choice. After assessing this information, or if the user already knows which stocks they would like to place in their portfolio, this program will simulate its performance over time. Parameters such as initial portfolio investment, weight of the stocks in the portfolio, and investment length of time are inputs provided by the use.
 
 ## Background
 Financial concepts and wealth management can be daunting to understand for people who do not have a background in finance.
@@ -54,7 +49,7 @@ User can also generate a Favorites List for their stocks for future reference.
 <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Favorites%20List.png" width="300">
 
 ## Collaborators
-Byan Lu (btl245@stern.nyu.edu), Vadim Yermak (vadik.ermak@gmail.com), Cherryl Adzang (cherryl.adzang@gmail.com) , John Nguyen (nguyenjohn1337@gmail.com), and Philippe Timothe (PhilippeTimothe@gmail.com)
+Bryan Lu (btl245@stern.nyu.edu), Vadim Yermak (vadik.ermak@gmail.com), Cherryl Adzang (cherryl.adzang@gmail.com) , John Nguyen (nguyenjohn1337@gmail.com), and Philippe Timothe (PhilippeTimothe@gmail.com)
 
 ## Sources
 
