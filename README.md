@@ -11,12 +11,14 @@
 - [License](#license)
 
 ## Description
+This is a financial portfolio planne that allows the user to research stocks and create a portfolio of stocks. The user is able able to preview the expected return, volatility and sharp ratio for the stock of their choice. After assessing this information, or if the user already knows which stocks they would like to place in their portfolio, this program will simulate its performance over time. Parameters such as initial portfolio investment, weight of the stocks in the portfolio, and investment length of time are inputs provided by the user.
+
+
+
 <div align="center">
 <img src="Images/Portfolio Planner.gif"  style="width: 100%; height: 600px; object-fit: none;">
 </div>
 <br/>
-                                               
-This is a financial portfolio planne that allows the user to research stocks and create a portfolio of stocks. The user is able able to preview the expected return, volatility and sharp ratio for the stock of their choice. After assessing this information, or if the user already knows which stocks they would like to place in their portfolio, this program will simulate its performance over time. Parameters such as initial portfolio investment, weight of the stocks in the portfolio, and investment length of time are inputs provided by the use.
 
 ## Background
 Financial concepts and wealth management can be daunting to understand for people who do not have a background in finance.
