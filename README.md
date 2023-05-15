@@ -51,7 +51,11 @@ User can also generate a Favorites List for their stocks for future reference.
 <img src = "https://github.com/VadimYermak/Project-1/blob/main/Images/Favorites%20List.png" width="300">
 
 ## Collaborators
-Bryan Lu (btl245@stern.nyu.edu), Vadim Yermak (vadik.ermak@gmail.com), Cherryl Adzang (cherryl.adzang@gmail.com) , John Nguyen (nguyenjohn1337@gmail.com), and Philippe Timothe (PhilippeTimothe@gmail.com)
++ Bryan Lu (btl245@stern.nyu.edu)
++ Vadim Yermak (vadik.ermak@gmail.com)
++ Philippe Timothe (PhilippeTimothe@gmail.com)
++ Cherryl Adzang (cherryl.adzang@gmail.com)
++ John Nguyen (nguyenjohn1337@gmail.com)
 
 ## Sources
 Columbia Engineering Bootcamp learning materials
