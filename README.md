@@ -1,4 +1,4 @@
-<h1 align="center">Porfolio Planner</h1>
+<h1 align="center">Portfolio Planner</h1>
 
 ## Table of contents
 
